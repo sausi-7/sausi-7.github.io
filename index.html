@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!--=============== REMIX ICONS ===============-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title>Saurabh Singh Portfolio</title>
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="profile container">
+      <!-- Theme button -->
+      <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+      <div class="profile__container grid">
+        <div class="profile__data">
+          <h2 class="profile__name">Hello, I'm</h2>
+          <h1 class="profile__name">Saurabh Singh</h1>
+          <h2 class="profile__profession">I'm a full-stack developer</h2>
+
+          <h4 class="profile__profession" style="margin-bottom: 1rem">
+            I create WebApps, WebSites, APIs.
+          </h4>
+          <ul class="profile__social">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              class="profile__social-link"
+            >
+              <i id="insta" class="ri-instagram-line"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              class="profile__social-link"
+            >
+              <i style="color: #0077b5" class="ri-linkedin-line"></i>
+            </a>
+            <a
+              href="https://api.whatsapp.com/send?phone=51123456789&text=Hello, more information!"
+              target="_blank"
+              class="profile__social-link"
+            >
+              <i style="color: #128c7e" class="ri-whatsapp-line"></i>
+            </a>
+            <a
+              href="https://m.me/bedimcode"
+              target="_blank"
+              class="profile__social-link"
+            >
+              <i style="color: #4267b2" class="ri-facebook-line"></i>
+            </a>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!--=============== MAIN ===============-->
+    <main class="main">
+      <section class="filters container">
+        <!--=============== FILTERS TABS ===============-->
+        <ul class="filters__content">
+          <button class="filters__button" data-target="#skills">Skills</button>
+          <button
+            class="filters__button filter-tab-active"
+            data-target="#projects"
+          >
+            About Me
+          </button>
+        </ul>
+
+        <div class="filters__sections">
+          <!--=============== PROJECTS ===============-->
+          <div
+            class="skills__content grid filters__active"
+            data-content
+            id="projects"
+          >
+          <p>
+
+            
+          I am Saurabh Singh, a full-stack developer currently creating Angular Apps and ASP.NET Core Web APIs. I started programming/coding in July 2020 since then I have worked on Node.js, CosmosDb, CI/CD , Green-Blue deployment , Azure Web Apps , Database Sharding , Ionic ,GraphQL and i have been in top 0.0013% programmers in InterviewBit's global rankings. 
+                Other then programming  
+                I listen to songs every waking moment
+                I can run 400m in less than a minute. I love cricket,cinema,music and everthying implicitly/explicitly related to them. Also planning to take some singing or guitar lessons soon🙃🙃🙃
+                
+            </p> 
+          </div>
+
+          <!--=============== SKILLS ===============-->
+          <div class="skills__content grid" data-content id="skills">
+            <div class="skills__area">
+              <h3 class="skills__title">Languages</h3>
+
+              <div class="skills__box">
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">HTML</h3>
+                      <!-- <span class="skills__level">Basic</span> -->
+                    </div>
+                  </div>
+
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">CSS</h3>
+                      <!-- <span class="skills__level">Advanced</span> -->
+                    </div>
+                  </div>
+
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">JavaScript</h3>
+                      <!-- <span class="skills__level">Intermediate</span> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">Typescript</h3>
+                      <!-- <span class="skills__level">Intermediate</span> -->
+                    </div>
+                  </div>
+
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">Phython</h3>
+                      <!-- <span class="skills__level">Intermediate</span> -->
+                    </div>
+                  </div>
+
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">C#</h3>
+                      <!-- <span class="skills__level">Intermediate</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills__area">
+              <h3 class="skills__title">Databases</h3>
+
+              <div class="skills__box">
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">Cosmos Db</h3>
+                      <!-- <span class="skills__level">Intermediate</span> -->
+                    </div>
+                  </div>
+
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">PostgreSQL</h3>
+                      <!-- <span class="skills__level">Advance</span> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">Mongo Db</h3>
+                      <!-- <span class="skills__level">Basic</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="skills__area">
+              <h3 class="skills__title">Frameworks</h3>
+
+              <div class="skills__box">
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">Angular</h3>
+                      <!-- <span class="skills__level">Intermediate</span> -->
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">Ionic</h3>
+                      <!-- <span class="skills__level">Intermediate</span> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="ri-terminal-fill"></i>
+
+                    <div>
+                      <h3 class="skills__name">ASP.Net Core</h3>
+                      <!-- <span class="skills__level">Advance</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <br />
+    <!--=============== FOOTER ===============-->
+    <footer class="footer container">
+      <!-- <span class="footer__copy"> &#169; Bedimcode. All rigths reserved </span> -->
+    </footer>
+
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

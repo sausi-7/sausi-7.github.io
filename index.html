@@ -1,258 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!--=============== FAVICON ===============-->
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon.png"
-      type="image/x-icon"
-    />
-
-    <!--=============== REMIX ICONS ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css" />
-
-    <title>Saurabh Singh Portfolio</title>
+    <title>Saurabh Singh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              netflixBlack: '#141414',
+              netflixRed: '#E50914',
+              lightbg: '#f8fafc'
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body>
-    <!--=============== HEADER ===============-->
-    <header class="profile container">
-      <!-- Theme button -->
-      <i class="ri-moon-line change-theme" id="theme-button"></i>
+  <body class="bg-lightbg text-black dark:bg-netflixBlack dark:text-white transition-colors duration-500">
 
-      <div class="profile__container grid">
-        <div class="profile__data">
-          <h2 class="profile__name">Hello, I'm</h2>
-          <h1 class="profile__name">Saurabh Singh</h1>
-          <h2 class="profile__profession">I'm a full-stack developer</h2>
-
-          <h4 class="profile__profession" style="margin-bottom: 1rem">
-            I create WebApps, WebSites, APIs.
-          </h4>
-          <ul class="profile__social">
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              class="profile__social-link"
-            >
-              <i id="insta" class="ri-instagram-line"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              class="profile__social-link"
-            >
-              <i style="color: #0077b5" class="ri-linkedin-line"></i>
-            </a>
-            <a
-              href="https://api.whatsapp.com/send?phone=51123456789&text=Hello, more information!"
-              target="_blank"
-              class="profile__social-link"
-            >
-              <i style="color: #128c7e" class="ri-whatsapp-line"></i>
-            </a>
-            <a
-              href="https://m.me/bedimcode"
-              target="_blank"
-              class="profile__social-link"
-            >
-              <i style="color: #4267b2" class="ri-facebook-line"></i>
-            </a>
-          </ul>
-        </div>
-      </div>
+    <!-- Header -->
+    <header class="flex justify-between items-center px-6 py-4 shadow-lg sticky top-0 z-10 bg-white dark:bg-netflixBlack transition-colors duration-500">
+      <h1 class="text-xl font-bold text-netflixRed">iamsausi</h1>
+      <button id="themeToggle" class="text-netflixRed p-2 rounded-full hover:bg-red-200 dark:hover:bg-red-900 transition duration-200">
+        <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+        </svg>
+      </button>
     </header>
 
-    <!--=============== MAIN ===============-->
-    <main class="main">
-      <section class="filters container">
-        <!--=============== FILTERS TABS ===============-->
-        <ul class="filters__content">
-          <button class="filters__button filter-tab-active" data-target="#skills">Skills</button>
-          <button
-            class="filters__button"
-            data-target="#projects"
-          >
-            About Me
-          </button>
-        </ul>
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center h-screen text-center px-4">
+      <h2 class="text-4xl font-bold mb-4">Hey, I'm Saurabh Singh</h2>
+      <p class="text-xl mb-6 max-w-2xl">Full Stack Developer | Gen AI Engineer | Tech & Finance Enthusiast</p>
+      <a href="#contact" class="bg-netflixRed hover:bg-red-700 px-6 py-3 rounded-md text-white font-semibold">Get in Touch</a>
+    </section>
 
-        <div class="filters__sections">
-          <!--=============== PROJECTS ===============-->
-          <div
-            class="skills__content grid "
-            data-content
-            id="projects"
-          >
+    <!-- About -->
+    <section id="about" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
+      <h3 class="text-3xl font-bold mb-4 text-netflixRed dark:text-netflixRed">About Me</h3>
+      <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">
+        I'm a passionate and results-driven web developer with over 5 years of experience building scalable, high-performance applications. I've delivered robust Angular SPAs with responsive designs across 5+ major projects, and developed enterprise-grade .NET Core APIs handling over 100,000 daily requests.
+        <br><br>
+        An IIT Kanpur graduate, I bring both strong analytical grounding and a developer's drive to build impactful systems. My technical strengths include real-time dashboards using WebSockets and SignalR, as well as recent hands-on work with GenAI and Agentic AI — integrating cutting-edge AI solutions to create smarter, more intuitive apps.
+        <br><br>
+        Beyond coding, I take pride in building teams and sharing knowledge. I've led an 8-member development team, conducted 50+ technical interviews, and mentored junior developers to help them level up. I thrive in fast-paced environments where innovation meets impact — and I’m always eager to explore new tech, solve meaningful problems, and contribute to products that matter.
+        <br><br>
+        Outside of tech, I’m an avid Cricket and Formula 1 fan, and a lifelong reader who enjoys books that sharpen the mind and broaden perspectives.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
+      <h3 class="text-3xl font-bold mb-6 text-netflixRed dark:text-netflixRed">Education</h3>
+      <div>
+        <h4 class="text-xl font-bold">Indian Institute of Technology, Kanpur</h4>
+        <p class="text-sm text-gray-700 dark:text-gray-400">Bachelore - 2020</p>
+        <p class="text-gray-700 dark:text-gray-300">
+          Gained a strong foundation in analytical thinking and problem-solving, which reflects in my full-stack and AI engineering work today. <br>
+          Enjoyed hostel life and made great friends.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
+      <h3 class="text-3xl font-bold mb-6 text-netflixRed dark:text-netflixRed">Experience</h3>
+      <div class="space-y-6 text-gray-700 dark:text-gray-300">
+
+        <div>
+          <h4 class="text-xl font-bold">Fintech</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Associate Lead - AI Engineer | Feb 2025 – Present</p>
           <p>
-
-            
-            I'm Saurabh Singh, am a full-stack developer currently developing Angular Apps and ASP.NET Core Web APIs. I started programming in July 2020 since then I've worked on Node.js, CosmosDb, CI/CD, Green-Blue deployment, Azure Web Apps, Database Sharding, Ionic, and GraphQL, and I've been in the top 0.0013% of programmers in InterviewBit's global rankings.
-            Aside from programming, I listen to music every waking moment can sprint 400 meters in under a minute, and can sketch with both hands. I love music, movies, cricket, and anything else that is implicitly/explicitly related to them. I'm also thinking of taking some singing or guitar lessons soon.
-                
-            </p> 
-          </div>
-
-          <!--=============== SKILLS ===============-->
-          <div class="skills__content grid filters__active" data-content id="skills">
-            <div class="skills__area">
-              <h3 class="skills__title">Languages</h3>
-
-              <div class="skills__box">
-                <div class="skills__group">
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">HTML</h3>
-                      <!-- <span class="skills__level">Basic</span> -->
-                    </div>
-                  </div>
-
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">CSS</h3>
-                      <!-- <span class="skills__level">Advanced</span> -->
-                    </div>
-                  </div>
-
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">JavaScript</h3>
-                      <!-- <span class="skills__level">Intermediate</span> -->
-                    </div>
-                  </div>
-                </div>
-
-                <div class="skills__group">
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">Typescript</h3>
-                      <!-- <span class="skills__level">Intermediate</span> -->
-                    </div>
-                  </div>
-
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">Phython</h3>
-                      <!-- <span class="skills__level">Intermediate</span> -->
-                    </div>
-                  </div>
-
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">C#</h3>
-                      <!-- <span class="skills__level">Intermediate</span> -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="skills__area">
-              <h3 class="skills__title">Databases</h3>
-
-              <div class="skills__box">
-                <div class="skills__group">
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">Cosmos Db</h3>
-                      <!-- <span class="skills__level">Intermediate</span> -->
-                    </div>
-                  </div>
-
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">PostgreSQL</h3>
-                      <!-- <span class="skills__level">Advance</span> -->
-                    </div>
-                  </div>
-                </div>
-
-                <div class="skills__group">
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">Mongo Db</h3>
-                      <!-- <span class="skills__level">Basic</span> -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="skills__area">
-              <h3 class="skills__title">Frameworks</h3>
-
-              <div class="skills__box">
-                <div class="skills__group">
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">Angular</h3>
-                      <!-- <span class="skills__level">Intermediate</span> -->
-                    </div>
-                  </div>
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">Ionic</h3>
-                      <!-- <span class="skills__level">Intermediate</span> -->
-                    </div>
-                  </div>
-                </div>
-
-                <div class="skills__group">
-                  <div class="skills__data">
-                    <i class="ri-terminal-fill"></i>
-
-                    <div>
-                      <h3 class="skills__name">ASP.Net Core</h3>
-                      <!-- <span class="skills__level">Advance</span> -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            Built an AI assistant using GenAI (RAG + OpenAI) for automating invoice analysis, expense tracking, and natural language finance queries — reducing manual effort by 50%. Led a team of 8 full stack developers, shifted the main website to MicroFrontend architecture.<br>
+            <strong>Tech Used:</strong> Python, .NET Core, Angular.
+          </p>
         </div>
-      </section>
-    </main>
 
-    <br />
-    <!--=============== FOOTER ===============-->
-    <footer class="footer container">
-      <!-- <span class="footer__copy"> &#169; Bedimcode. All rigths reserved </span> -->
+        <div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">System Analyst | Aug 2023 – Jan 2025</p>
+          <p>
+            Created a full device financing product from scratch, led a team to develop a Microsoft Teams-like internal chat app, and delivered multiple HTML-to-Figma POCs.<br>
+            <strong>Tech Used:</strong> Blazor, WebSockets, Angular, SignalR.
+          </p>
+        </div>
+
+        <div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Senior Software Engineer 2 | Feb 2022 – Jul 2023</p>
+          <p>
+            Designed and implemented a fast IVR response system cutting average time from 6 seconds to under 1 second with 30 lakh daily hits. Conducted Cosmos DB adoption POCs.<br>
+            <strong>Tech Used:</strong> Cosmos DB, Angular, .NET Core.
+          </p>
+        </div>
+
+        <div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Senior Software Engineer | Jul 2020 – Jan 2022</p>
+          <p>
+            Built Angular User Access Management Portal and created a dynamic feedback system sent to all Bajaj Finserv customers (~50 lakh hits/day).<br>
+            <strong>Tech Used:</strong> Angular, .NET APIs.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Recommended Reads -->
+    <section id="reads" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
+      <h3 class="text-3xl font-bold mb-4 text-netflixRed dark:text-netflixRed">📚 Recommended Reads</h3>
+      <ul class="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
+        <li><span class="font-semibold">The Almanack of Naval Ravikant</span> – Wealth, health, and happiness.</li>
+        <li><span class="font-semibold">Shoe Dog</span> by Phil Knight – A memoir by the creator of Nike.</li>
+        <li><span class="font-semibold">The Accidental Billionaires</span> by Ben Mezrich – The founding of Facebook.</li>
+        <li><span class="font-semibold">Steve Jobs</span> by Walter Isaacson – The story of Apple's visionary co-founder.</li>
+        <li><span class="font-semibold">Invent and Wander</span> by Walter Isaacson – The collected writings of Jeff Bezos.</li>
+        <li><span class="font-semibold">The Hard Thing About Hard Things</span> by Ben Horowitz – Building a business when there are no easy answers.</li>
+        <li><span class="font-semibold">Atomic Habits</span> by James Clear – Small habits, big results.</li>
+        <li><span class="font-semibold">Deep Work</span> by Cal Newport – Focused productivity in a distracted world.</li>
+        <li><span class="font-semibold">Zero to One</span> by Peter Thiel – Building startups and future thinking.</li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-white dark:bg-gray-900 px-6 py-12 max-w-4xl mx-auto transition-colors duration-500">
+      <h3 class="text-3xl font-bold mb-4 text-netflixRed dark:text-netflixRed">Reach Out</h3>
+      <p class="mb-2 text-gray-700 dark:text-gray-300">Email: <a href="mailto:singh71297@hotmail.com" class="text-netflixRed">singh71297@hotmail.com</a></p>
+      <p class="text-gray-700 dark:text-gray-300">LinkedIn: <a href="https://linkedin.com/in/iamsausi" target="_blank" class="text-netflixRed">iamsausi</a></p>
+      <p class="text-gray-700 dark:text-gray-300">Instagram: <a href="https://instagram.com/iamsausi" target="_blank" class="text-netflixRed">iamsausi</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-white dark:bg-netflixBlack border-t border-gray-300 dark:border-gray-700 transition-colors duration-500">
+      <p class="text-sm text-gray-700 dark:text-gray-400">&copy; 2025 Saurabh Singh. All rights reserved.</p>
     </footer>
 
-    <!--=============== SCROLLREVEAL ===============-->
-    <script src="assets/js/scrollreveal.min.js"></script>
+    <!-- Theme Toggle Script -->
+    <script>
+      const toggleBtn = document.getElementById('themeToggle');
+      const icon = document.getElementById('themeIcon');
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
+      toggleBtn.addEventListener('click', () => {
+        const html = document.documentElement;
+        html.classList.toggle('dark');
+        const isDark = html.classList.contains('dark');
+
+        icon.innerHTML = isDark
+          ? `<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>` // moon
+          : `<path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.47a1 1 0 011.42 1.41l-.7.71a1 1 0 01-1.42-1.42l.7-.7zM18 9a1 1 0 100 2h-1a1 1 0 100-2h1zM4 9a1 1 0 100 2H3a1 1 0 100-2h1zm12.29 6.29a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 011.42-1.42l.7.7zM10 18a1 1 0 011-1v-1a1 1 0 10-2 0v1a1 1 0 011 1zM6.34 17.66a1 1 0 01-1.41 0l-.7-.7a1 1 0 011.42-1.42l.7.7a1 1 0 010 1.42zM5.05 4.64a1 1 0 011.42 0l.7.7a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 010-1.42z" clip-rule="evenodd"/>`; // sun
+      });
+    </script>
+
   </body>
 </html>

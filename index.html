@@ -1,158 +1,225 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saurabh Singh</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              netflixBlack: '#141414',
-              netflixRed: '#E50914',
-              lightbg: '#f8fafc'
-            },
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saurabh Singh</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Dark scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            netflixBlack: '#141414',
+            netflixRed: '#E50914',
+            lightbg: '#f8fafc'
           },
         },
-      };
-    </script>
-  </head>
-  <body class="bg-lightbg text-black dark:bg-netflixBlack dark:text-white transition-colors duration-500">
+      },
+    };
+  </script>
+</head>
 
-    <!-- Header -->
-    <header class="flex justify-between items-center px-6 py-4 shadow-lg sticky top-0 z-10 bg-white dark:bg-netflixBlack transition-colors duration-500">
-      <h1 class="text-xl font-bold text-netflixRed">iamsausi</h1>
-      <button id="themeToggle" class="text-netflixRed p-2 rounded-full hover:bg-red-200 dark:hover:bg-red-900 transition duration-200">
-        <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current" viewBox="0 0 20 20">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
-        </svg>
-      </button>
-    </header>
+<body class="bg-lightbg text-black dark:bg-netflixBlack dark:text-white transition-colors duration-500">
 
-    <!-- Hero Section -->
-    <section class="flex flex-col items-center justify-center h-screen text-center px-4">
-      <h2 class="text-4xl font-bold mb-4">Hey, I'm Saurabh Singh</h2>
-      <p class="text-xl mb-6 max-w-2xl">Full Stack Developer | Gen AI Engineer | Tech & Finance Enthusiast</p>
-      <a href="#contact" class="bg-netflixRed hover:bg-red-700 px-6 py-3 rounded-md text-white font-semibold">Get in Touch</a>
-    </section>
+  <!-- Header -->
+  <header
+    class="flex justify-between items-center px-6 py-4 shadow-lg sticky top-0 z-10 bg-white dark:bg-netflixBlack transition-colors duration-500">
+    <h1 class="text-xl font-bold text-netflixRed">iamsausi</h1>
+    <button id="themeToggle"
+      class="text-netflixRed p-2 rounded-full hover:bg-red-200 dark:hover:bg-red-900 transition duration-200">
+      <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current" viewBox="0 0 20 20">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+      </svg>
+    </button>
+  </header>
 
-    <!-- About -->
-    <section id="about" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
-      <h3 class="text-3xl font-bold mb-4 text-netflixRed dark:text-netflixRed">About Me</h3>
-      <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">
-        I'm a passionate and results-driven web developer with over 5 years of experience building scalable, high-performance applications. I've delivered robust Angular SPAs with responsive designs across 5+ major projects, and developed enterprise-grade .NET Core APIs handling over 100,000 daily requests.
-        <br><br>
-        An IIT Kanpur graduate, I bring both strong analytical grounding and a developer's drive to build impactful systems. My technical strengths include real-time dashboards using WebSockets and SignalR, as well as recent hands-on work with GenAI and Agentic AI — integrating cutting-edge AI solutions to create smarter, more intuitive apps.
-        <br><br>
-        Beyond coding, I take pride in building teams and sharing knowledge. I've led an 8-member development team, conducted 50+ technical interviews, and mentored junior developers to help them level up. I thrive in fast-paced environments where innovation meets impact — and I’m always eager to explore new tech, solve meaningful problems, and contribute to products that matter.
-        <br><br>
-        Outside of tech, I’m an athlete avid Cricket and Formula 1 fan, and a lifelong reader who enjoys books that sharpen the mind and broaden perspectives. Sometimes publishes about finance or tech too.
-      </p>
-    </section>
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center justify-center min-h-[90vh] text-center px-4">
+    <h2 class="text-4xl font-bold mb-4">Hey, I'm Saurabh Singh</h2>
+    <p class="text-xl mb-6 max-w-2xl">Full Stack Developer | Gen AI Engineer | Tech & Finance Enthusiast</p>
+    <a href="#contact"
+      class="bg-netflixRed hover:bg-red-700 px-6 py-3 rounded-md text-white font-semibold transition duration-200">Get
+      in Touch</a>
+  </section>
 
-    <!-- Education -->
-    <section id="education" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
-      <h3 class="text-3xl font-bold mb-6 text-netflixRed dark:text-netflixRed">Education</h3>
+  <!-- About -->
+  <section id="about" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
+    <h3 class="text-3xl font-bold mb-4 text-netflixRed">About Me</h3>
+    <p class="text-lg mb-8 text-gray-700 dark:text-gray-300 leading-relaxed">
+
+      🚀 I’m a seasoned tech leader with 5+ years of experience designing and building high-performance systems—capable
+      of handling 100M+ customers and 10 lakh+ hits per hour with ease.
+      <br>
+      🧠 My core strengths lie in System Design, Angular, and building scalable SPAs and APIs that perform under
+      pressure. I’ve also worked extensively with WebSockets, SignalR, and cutting-edge Generative AI (GenAI) and
+      Agentic AI to deliver intelligent, real-time experiences.
+      <br>
+      📈 Now stepping into the startup world, I’m building a GenAI product from 0 to 1—driving both the technical
+      architecture and the product direction. I’m also expanding my skill set by diving into marketing and branding, to
+      understand how to not just build products—but to position and grow them.
+      <br>
+      👥 I’ve led teams, mentored engineers, conducted 100+ interviews, and built a culture of collaboration and
+      excellence. I believe great tech is built by great people—and I love empowering those around me.
+      <br>
+      💡 Forever curious, I thrive on solving complex challenges with bold thinking and smart execution.
+
+
+
+    </p>
+  </section>
+
+
+  <!-- Experience -->
+  <section id="experience" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
+    <h3 class="text-3xl font-bold mb-6 text-netflixRed">Experience</h3>
+    <div class="space-y-6 text-gray-700 dark:text-gray-300">
+
       <div>
-        <h4 class="text-xl font-bold">Indian Institute of Technology, Kanpur</h4>
-        <p class="text-sm text-gray-700 dark:text-gray-400">Bachelors - 2020</p>
-        <p class="text-gray-700 dark:text-gray-300">
-          Gained a strong foundation in analytical thinking and problem-solving, which reflects in my full-stack and AI engineering work today. <br>
-          Enjoyed hostel life and made great friends.
+        <h4 class="text-xl font-bold">Chaotix AI</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Building | June 2025 – Present</p>
+        <p>
+          At Chaotix AI, we’re reinventing how the next generation creates and interacts with digital content. Imagine a
+          world where a teenager’s fleeting thought can become an interactive, playable experience in seconds—where
+          TikTok meets real-time, AI-powered game engines. That’s the world we’re building.
+
+          We’re an early-stage, high-velocity team on a mission to make creativity feel like magic. Our platform lets
+          users generate, remix, and share interactive experiences with the ease of sending a message—redefining
+          internet creativity for Gen Z and beyond.
         </p>
       </div>
-    </section>
 
-    <!-- Experience -->
-    <section id="experience" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
-      <h3 class="text-3xl font-bold mb-6 text-netflixRed dark:text-netflixRed">Experience</h3>
-      <div class="space-y-6 text-gray-700 dark:text-gray-300">
 
-        <div>
-          <h4 class="text-xl font-bold">Fintech</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Associate Lead - AI Engineer | Feb 2025 – Present</p>
-          <p>
-            Built an AI assistant using GenAI (RAG + OpenAI) for automating invoice analysis, expense tracking, and natural language finance queries — reducing manual effort by 50%. Led a team of 8 full stack developers, shifted the main website to MicroFrontend architecture.<br>
-            <strong>Tech Used:</strong> Python, .NET Core, Angular.
-          </p>
-        </div>
-
-        <div>
-          <p class="text-sm text-gray-600 dark:text-gray-400">System Analyst | Aug 2023 – Jan 2025</p>
-          <p>
-            Created a full device financing product from scratch, led a team to develop a Microsoft Teams-like internal chat app, and delivered multiple HTML-to-Figma POCs.<br>
-            <strong>Tech Used:</strong> Blazor, WebSockets, Angular, SignalR.
-          </p>
-        </div>
-
-        <div>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Senior Software Engineer 2 | Feb 2022 – Jul 2023</p>
-          <p>
-            Designed and implemented a fast IVR response system cutting average time from 6 seconds to under 1 second with 30 lakh daily hits. Conducted Cosmos DB adoption POCs.<br>
-            <strong>Tech Used:</strong> Cosmos DB, Angular, .NET Core.
-          </p>
-        </div>
-
-        <div>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Senior Software Engineer | Jul 2020 – Jan 2022</p>
-          <p>
-            Built Angular User Access Management Portal and created a dynamic feedback system sent to all Bajaj Finserv customers (~50 lakh hits/day).<br>
-            <strong>Tech Used:</strong> Angular, .NET APIs.
-          </p>
-        </div>
-
+      <div>
+        <h4 class="text-xl font-bold">Bajaj Finserv</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Associate Lead - AI Engineer | Feb 2025 – June 2025</p>
+        <p>
+          Built an AI assistant using GenAI (RAG + OpenAI) for automating invoice analysis, expense tracking, and
+          natural language finance queries — reducing manual effort by 50%. Led a team of 8 full stack developers,
+          shifted the main website to MicroFrontend architecture.<br>
+          <strong>Tech Used:</strong> Python, .NET Core, Angular.
+        </p>
       </div>
-    </section>
 
-    <!-- Recommended Reads -->
-    <section id="reads" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
-      <h3 class="text-3xl font-bold mb-4 text-netflixRed dark:text-netflixRed">📚 Recommended Reads</h3>
-      <ul class="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
-        <li><span class="font-semibold">The Almanack of Naval Ravikant</span> – Wealth, health, and happiness.</li>
-        <li><span class="font-semibold">Shoe Dog</span> by Phil Knight – A memoir by the creator of Nike.</li>
-        <li><span class="font-semibold">The Accidental Billionaires</span> by Ben Mezrich – The founding of Facebook.</li>
-        <li><span class="font-semibold">Steve Jobs</span> by Walter Isaacson – The story of Apple's visionary co-founder.</li>
-        <li><span class="font-semibold">Invent and Wander</span> by Walter Isaacson – The collected writings of Jeff Bezos.</li>
-        <li><span class="font-semibold">The Hard Thing About Hard Things</span> by Ben Horowitz – Building a business when there are no easy answers.</li>
-        <li><span class="font-semibold">Atomic Habits</span> by James Clear – Small habits, big results.</li>
-        <li><span class="font-semibold">Deep Work</span> by Cal Newport – Focused productivity in a distracted world.</li>
-        <li><span class="font-semibold">Zero to One</span> by Peter Thiel – Building startups and future thinking.</li>
-      </ul>
-    </section>
+      <div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">System Analyst | Aug 2023 – Jan 2025</p>
+        <p>
+          Created a full device financing product from scratch, led a team to develop a Microsoft Teams-like internal
+          chat app, and delivered multiple HTML-to-Figma POCs.<br>
+          <strong>Tech Used:</strong> Blazor, WebSockets, Angular, SignalR.
+        </p>
+      </div>
 
-    <!-- Contact -->
-    <section id="contact" class="bg-white dark:bg-gray-900 px-6 py-12 max-w-4xl mx-auto transition-colors duration-500">
-      <h3 class="text-3xl font-bold mb-4 text-netflixRed dark:text-netflixRed">Reach Out</h3>
-      <p class="mb-2 text-gray-700 dark:text-gray-300">Email: <a href="mailto:iamsausi@outlook.com" class="text-netflixRed">iamsausi@outlook.com</a></p>
-      <p class="text-gray-700 dark:text-gray-300">LinkedIn: <a href="https://linkedin.com/in/iamsausi" target="_blank" class="text-netflixRed">iamsausi</a></p>
-      <p class="text-gray-700 dark:text-gray-300">Instagram: <a href="https://instagram.com/sausi007" target="_blank" class="text-netflixRed">iamsausi</a></p>
-      <p class="text-gray-700 dark:text-gray-300">Medium: <a href="https://medium.com/@sausi" target="_blank" class="text-netflixRed">@sausi</a></p>
-      
-    </section>
+      <div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Senior Software Engineer 2 | Feb 2022 – Jul 2023</p>
+        <p>
+          Designed and implemented a fast IVR response system cutting average time from 6 seconds to under 1 second with
+          30 lakh daily hits. Conducted Cosmos DB adoption POCs.<br>
+          <strong>Tech Used:</strong> Cosmos DB, Angular, .NET Core.
+        </p>
+      </div>
 
-    <!-- Footer -->
-    <footer class="text-center py-6 bg-white dark:bg-netflixBlack border-t border-gray-300 dark:border-gray-700 transition-colors duration-500">
-      <p class="text-sm text-gray-700 dark:text-gray-400">&copy; 2025 Saurabh Singh. All rights reserved.</p>
-    </footer>
+      <div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Senior Software Engineer | Jul 2020 – Jan 2022</p>
+        <p>
+          Built Angular User Access Management Portal and created a dynamic feedback system sent to all Bajaj Finserv
+          customers (~50 lakh hits/day).<br>
+          <strong>Tech Used:</strong> Angular, .NET APIs.
+        </p>
+      </div>
 
-    <!-- Theme Toggle Script -->
-    <script>
-      const toggleBtn = document.getElementById('themeToggle');
-      const icon = document.getElementById('themeIcon');
+    </div>
+  </section>
 
-      toggleBtn.addEventListener('click', () => {
-        const html = document.documentElement;
-        html.classList.toggle('dark');
-        const isDark = html.classList.contains('dark');
 
-        icon.innerHTML = isDark
-          ? `<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>` // moon
-          : `<path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.47a1 1 0 011.42 1.41l-.7.71a1 1 0 01-1.42-1.42l.7-.7zM18 9a1 1 0 100 2h-1a1 1 0 100-2h1zM4 9a1 1 0 100 2H3a1 1 0 100-2h1zm12.29 6.29a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 011.42-1.42l.7.7zM10 18a1 1 0 011-1v-1a1 1 0 10-2 0v1a1 1 0 011 1zM6.34 17.66a1 1 0 01-1.41 0l-.7-.7a1 1 0 011.42-1.42l.7.7a1 1 0 010 1.42zM5.05 4.64a1 1 0 011.42 0l.7.7a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 010-1.42z" clip-rule="evenodd"/>`; // sun
-      });
-    </script>
 
-  </body>
+
+  <!-- Education -->
+  <section id="education" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
+    <h3 class="text-3xl font-bold mb-6 text-netflixRed">Education</h3>
+    <div>
+      <h4 class="text-xl font-bold">Indian Institute of Technology, Kanpur</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-400">Bachelors - 2020</p>
+      <p class="text-gray-700 dark:text-gray-300">
+        Gained a strong foundation in analytical thinking and problem-solving, which reflects in my full-stack and AI
+        engineering work today. <br>
+        Enjoyed hostel life and made great friends.
+      </p>
+    </div>
+  </section>
+
+
+
+  <!-- Recommended Reads -->
+  <section id="reads" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
+    <h3 class="text-3xl font-bold mb-4 text-netflixRed">📚 Recommended Reads</h3>
+    <ul class="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
+      <li><span class="font-semibold">The Almanack of Naval Ravikant</span> – Wealth, health, and happiness.</li>
+      <li><span class="font-semibold">Shoe Dog</span> by Phil Knight – A memoir by the creator of Nike.</li>
+      <li><span class="font-semibold">The Accidental Billionaires</span> by Ben Mezrich – The founding of Facebook.</li>
+      <li><span class="font-semibold">Steve Jobs</span> by Walter Isaacson – The story of Apple's visionary co-founder.
+      </li>
+      <li><span class="font-semibold">Invent and Wander</span> by Walter Isaacson – The collected writings of Jeff
+        Bezos.</li>
+      <li><span class="font-semibold">The Hard Thing About Hard Things</span> by Ben Horowitz – Building a business when
+        there are no easy answers.</li>
+      <li><span class="font-semibold">Atomic Habits</span> by James Clear – Small habits, big results.</li>
+      <li><span class="font-semibold">Deep Work</span> by Cal Newport – Focused productivity in a distracted world.</li>
+      <li><span class="font-semibold">Zero to One</span> by Peter Thiel – Building startups and future thinking.</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="bg-white dark:bg-gray-900 px-6 py-12 max-w-4xl mx-auto transition-colors duration-500">
+    <h3 class="text-3xl font-bold mb-4 text-netflixRed">Reach Out</h3>
+    <p class="mb-2 text-gray-700 dark:text-gray-300">Email: <a href="mailto:iamsausi@outlook.com"
+        class="text-netflixRed hover:underline">iamsausi@outlook.com</a></p>
+    <p class="mb-2 text-gray-700 dark:text-gray-300">LinkedIn: <a href="https://linkedin.com/in/iamsausi"
+        target="_blank" class="text-netflixRed hover:underline">iamsausi</a></p>
+    <p class="mb-2 text-gray-700 dark:text-gray-300">Instagram: <a href="https://instagram.com/sausi007" target="_blank"
+        class="text-netflixRed hover:underline">iamsausi</a></p>
+    <p class="text-gray-700 dark:text-gray-300">Medium: <a href="https://medium.com/@sausi" target="_blank"
+        class="text-netflixRed hover:underline">@sausi</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer
+    class="text-center py-6 bg-white dark:bg-netflixBlack border-t border-gray-300 dark:border-gray-700 transition-colors duration-500">
+    <p class="text-sm text-gray-700 dark:text-gray-400">&copy; 2025 Saurabh Singh. All rights reserved.</p>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+    toggleBtn.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.classList.toggle('dark');
+    });
+  </script>
+
+</body>
+
 </html>

@@ -1,225 +1,631 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saurabh Singh</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Saurabh Singh — AI Engineer & Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
   <style>
-    /* Dark scrollbars */
-    ::-webkit-scrollbar {
-      width: 8px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand: #F5F0E8;
+      --warm-white: #FDFAF5;
+      --ink: #2C2416;
+      --ink-mid: #5C4E38;
+      --ink-soft: #9A8870;
+      --terra: #C05E3C;
+      --terra-light: #F5E8E2;
+      --sage: #7A9E7E;
+      --sage-light: #EDF2EE;
+      --gold: #C4922A;
+      --gold-light: #FBF3E2;
+      --purple: #7C6BAE;
+      --purple-light: #F0EEFA;
+      --border: #DDD5C4;
+      --serif: 'Fraunces', serif;
+      --sans: 'Outfit', sans-serif;
+      --body: 'Lora', serif;
     }
 
-    ::-webkit-scrollbar-track {
-      background: transparent;
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--warm-white);
+      color: var(--ink);
+      font-family: var(--body);
+      font-weight: 400;
+      line-height: 1.75;
+      overflow-x: hidden;
     }
 
-    ::-webkit-scrollbar-thumb {
-      background-color: #888;
-      border-radius: 6px;
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999;
     }
 
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: #555;
+    /* NAV */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 56px;
+      position: sticky; top: 0;
+      background: rgba(253,250,245,0.93);
+      backdrop-filter: blur(16px);
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-mark {
+      width: 34px; height: 34px; background: var(--terra);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 14px; font-weight: 600; color: white;
+    }
+    .logo-text { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-link { font-family: var(--sans); font-size: 13px; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover { color: var(--terra); }
+    .nav-btn {
+      font-family: var(--sans); font-size: 13px; font-weight: 600;
+      background: var(--terra); color: white; padding: 10px 22px;
+      border-radius: 100px; text-decoration: none; transition: all 0.2s;
+    }
+    .nav-btn:hover { background: var(--ink); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero { padding: 96px 56px 88px; border-bottom: 1px solid var(--border); max-width: 920px; }
+
+    .open-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--sage-light); border: 1px solid var(--sage);
+      color: #3D6E42; font-family: var(--sans); font-size: 12px; font-weight: 500;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 40px;
+    }
+    .pulse-dot { width: 7px; height: 7px; background: var(--sage); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.4)} }
+
+    .hero-greeting { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--terra); letter-spacing: 0.06em; margin-bottom: 16px; }
+
+    .hero-name {
+      font-family: var(--serif); font-size: clamp(56px,8vw,100px);
+      font-weight: 300; line-height: 1.0; color: var(--ink);
+      margin-bottom: 20px; letter-spacing: -0.02em;
+    }
+    .wave { display: inline-block; animation: wave 2.5s ease-in-out infinite; }
+    @keyframes wave { 0%,100%{transform:rotate(0deg)}25%{transform:rotate(18deg)}75%{transform:rotate(-5deg)} }
+
+    .hero-tagline {
+      font-family: var(--serif); font-size: clamp(18px,2.5vw,26px);
+      font-weight: 400; font-style: italic; color: var(--ink-mid);
+      margin-bottom: 28px; line-height: 1.5;
+    }
+
+    .hero-bio { font-size: 15px; color: var(--ink-mid); max-width: 680px; line-height: 1.9; margin-bottom: 16px; }
+    .hero-bio strong { color: var(--ink); font-weight: 500; }
+    .hero-bio-2 { font-size: 15px; color: var(--ink-mid); max-width: 680px; line-height: 1.9; margin-bottom: 44px; }
+    .hero-bio-2 strong { color: var(--ink); font-weight: 500; }
+
+    /* inline proof highlight */
+    .inline-proof {
+      display: inline;
+      background: var(--gold-light);
+      border-bottom: 2px solid var(--gold);
+      padding: 0 4px;
+      border-radius: 3px;
+      font-style: italic;
+    }
+
+    .hero-stats { display: flex; gap: 48px; margin-bottom: 44px; flex-wrap: wrap; }
+    .stat-num { font-family: var(--serif); font-size: 34px; font-weight: 600; color: var(--terra); line-height: 1; display: block; }
+    .stat-label { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-soft); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; display: block; }
+
+    .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .btn-primary {
+      font-family: var(--sans); font-size: 14px; font-weight: 600;
+      background: var(--terra); color: white; padding: 14px 28px;
+      border-radius: 100px; text-decoration: none; transition: all 0.25s;
+    }
+    .btn-primary:hover { background: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,36,22,0.15); }
+    .btn-secondary {
+      font-family: var(--sans); font-size: 14px; font-weight: 500;
+      color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--border);
+      padding-bottom: 2px; transition: all 0.2s;
+    }
+    .btn-secondary:hover { color: var(--terra); border-color: var(--terra); }
+
+    /* SECTION */
+    .section { padding: 80px 56px; border-bottom: 1px solid var(--border); }
+    .section-label {
+      font-family: var(--sans); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::after { content: ''; width: 32px; height: 1px; background: var(--terra); }
+    .section-heading {
+      font-family: var(--serif); font-size: clamp(32px,4.5vw,52px);
+      font-weight: 300; color: var(--ink); line-height: 1.1; margin-bottom: 48px;
+    }
+    .section-heading em { font-style: italic; color: var(--terra); }
+
+    /* STORY TIMELINE */
+    .story-section { padding: 80px 56px; border-bottom: 1px solid var(--border); background: var(--sand); }
+
+    .story-timeline { position: relative; display: flex; flex-direction: column; }
+    .story-timeline::before {
+      content: '';
+      position: absolute; left: 18px; top: 24px; bottom: 24px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--terra), var(--purple), var(--sage));
+      border-radius: 2px;
+    }
+
+    .story-node { display: grid; grid-template-columns: 56px 1fr; gap: 24px; position: relative; }
+    .story-node-left { display: flex; flex-direction: column; align-items: center; padding-top: 22px; }
+    .story-dot { width: 20px; height: 20px; border-radius: 50%; border: 3px solid var(--sand); flex-shrink: 0; position: relative; z-index: 1; }
+    .dot-terra { background: var(--terra); box-shadow: 0 0 0 3px rgba(192,94,60,0.2); }
+    .dot-purple { background: var(--purple); box-shadow: 0 0 0 3px rgba(124,107,174,0.2); }
+    .dot-sage { background: var(--sage); box-shadow: 0 0 0 3px rgba(122,158,126,0.2); }
+    .story-connector { width: 2px; flex: 1; min-height: 28px; }
+
+    .story-card {
+      background: var(--warm-white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 30px 34px; margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+    .story-card:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(44,36,22,0.07); }
+    .story-card.sage-card { background: var(--sage-light); border-color: rgba(122,158,126,0.3); }
+
+    .story-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+    .story-period { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--ink-soft); white-space: nowrap; padding-top: 4px; }
+
+    .story-badge {
+      font-family: var(--sans); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 100px; display: inline-block; margin-bottom: 10px;
+    }
+    .badge-terra { background: var(--terra-light); color: var(--terra); }
+    .badge-purple { background: var(--purple-light); color: var(--purple); }
+    .badge-sage { background: var(--sage-light); color: #3D7042; }
+
+    .parallel-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--purple);
+      background: var(--purple-light); border: 1px solid rgba(124,107,174,0.25);
+      border-radius: 100px; padding: 5px 14px; margin-bottom: 14px; width: fit-content;
+    }
+    .p-dot { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; }
+
+    .story-title { font-family: var(--serif); font-size: 26px; font-weight: 400; color: var(--ink); margin-bottom: 8px; line-height: 1.25; }
+    .story-title em { font-style: italic; color: var(--terra); }
+    .story-title.purple-em em { color: var(--purple); }
+
+    .story-subtitle { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; }
+
+    .story-text { font-size: 14px; color: var(--ink-mid); line-height: 1.85; margin-bottom: 16px; }
+    .story-text strong { color: var(--ink); font-weight: 500; }
+    .story-text:last-of-type { margin-bottom: 20px; }
+
+    /* THE $200 CALLOUT */
+    .proof-block {
+      background: var(--gold-light);
+      border: 1px solid rgba(196,146,42,0.3);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 22px;
+      margin: 4px 0 22px;
+    }
+    .proof-block p {
+      font-family: var(--serif); font-size: 16px; font-style: italic;
+      color: var(--ink); line-height: 1.65; margin-bottom: 8px;
+    }
+    .proof-block span {
+      font-family: var(--sans); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
+    }
+
+    .story-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .s-pill {
+      font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-mid);
+      background: var(--sand); border: 1px solid var(--border);
+      padding: 4px 12px; border-radius: 100px;
+    }
+
+    /* ENTERPRISE */
+    .ent-list { display: flex; flex-direction: column; gap: 20px; }
+    .ent-card {
+      display: grid; grid-template-columns: 180px 1fr auto;
+      gap: 32px; align-items: start;
+      padding: 30px 34px; background: var(--sand);
+      border: 1px solid var(--border); border-radius: 16px; transition: all 0.3s;
+    }
+    .ent-card:hover { background: var(--warm-white); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(44,36,22,0.07); }
+
+    .ent-badge {
+      font-family: var(--sans); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: white; background: var(--terra);
+      padding: 4px 10px; border-radius: 100px; display: inline-block; margin-bottom: 8px;
+    }
+    .ent-badge.gb { background: var(--gold); }
+    .ent-co { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--ink); }
+    .ent-desc { font-size: 14px; color: var(--ink-mid); line-height: 1.8; margin-bottom: 14px; }
+    .ent-desc strong { color: var(--ink); font-weight: 500; }
+    .ent-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .e-pill {
+      font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-mid);
+      background: white; border: 1px solid var(--border); padding: 3px 12px; border-radius: 100px;
+    }
+    .ent-arrow { font-size: 20px; color: var(--terra); opacity: 0.45; transition: all 0.2s; align-self: center; }
+    .ent-card:hover .ent-arrow { opacity: 1; transform: translate(3px,-3px); }
+
+    /* WRITING */
+    .writing-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .writing-card {
+      background: var(--sand); border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px 30px; text-decoration: none; color: inherit; transition: all 0.3s; display: block;
+    }
+    .writing-card:hover { background: var(--warm-white); transform: translateY(-3px); box-shadow: 0 10px 32px rgba(44,36,22,0.07); }
+    .w-eye { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .w-title { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--ink); line-height: 1.35; margin-bottom: 10px; }
+    .w-blurb { font-size: 13px; color: var(--ink-soft); line-height: 1.75; margin-bottom: 16px; }
+    .w-cta { font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--terra); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+    .writing-card:hover .w-cta { gap: 10px; }
+
+    /* GITHUB */
+    .github-section { background: var(--ink); padding: 72px 56px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .github-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .github-text h2 { font-family: var(--serif); font-size: clamp(30px,4vw,46px); font-weight: 300; color: white; line-height: 1.2; margin-bottom: 18px; }
+    .github-text h2 em { font-style: italic; color: var(--terra); }
+    .github-text p { font-family: var(--body); font-size: 14px; color: rgba(255,255,255,0.46); line-height: 1.85; margin-bottom: 30px; }
+    .gh-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .gh-btn { font-family: var(--sans); font-size: 13px; font-weight: 600; padding: 12px 24px; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
+    .gh-fill { background: var(--terra); color: white; }
+    .gh-fill:hover { background: white; color: var(--ink); }
+    .gh-out { border: 1px solid rgba(255,255,255,0.2); color: white; }
+    .gh-out:hover { background: rgba(255,255,255,0.07); }
+
+    .cw { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 26px; }
+    .ch { font-family: var(--sans); font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.27); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px; }
+    .cg { display: flex; flex-direction: column; gap: 5px; }
+    .cr { display: flex; gap: 5px; }
+    .c { width: 13px; height: 13px; border-radius: 3px; background: rgba(255,255,255,0.05); }
+    .c1{background:rgba(192,94,60,0.25)}.c2{background:rgba(192,94,60,0.5)}.c3{background:rgba(192,94,60,0.75)}.c4{background:rgba(192,94,60,1)}
+
+    /* SKILLS */
+    .skills-wrap { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .skill-block { background: var(--sand); border: 1px solid var(--border); border-radius: 16px; padding: 26px 28px; }
+    .skill-lbl { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terra); margin-bottom: 16px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-family: var(--serif); font-size: 16px; font-weight: 400; font-style: italic; color: var(--ink); background: white; border: 1px solid var(--border); padding: 5px 16px; border-radius: 100px; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px; align-items: center; padding: 80px 56px; }
+    .contact-left h2 { font-family: var(--serif); font-size: clamp(36px,5vw,60px); font-weight: 300; color: var(--ink); line-height: 1.1; margin-bottom: 22px; }
+    .contact-left h2 em { font-style: italic; color: var(--terra); }
+    .contact-left p { font-size: 15px; color: var(--ink-mid); line-height: 1.85; max-width: 400px; margin-bottom: 34px; }
+    .contact-email { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--terra); text-decoration: none; border-bottom: 1px dashed var(--terra); padding-bottom: 4px; transition: opacity 0.2s; }
+    .contact-email:hover { opacity: 0.7; }
+
+    .socials { display: flex; flex-direction: column; }
+    .social-row { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--ink); transition: all 0.2s; }
+    .social-row:last-child { border-bottom: none; }
+    .social-row:hover { color: var(--terra); }
+    .social-row:hover .sarr { transform: translate(4px,-4px); }
+    .spl { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 2px; }
+    .shn { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--ink); }
+    .sarr { font-size: 18px; color: var(--terra); opacity: 0.55; transition: transform 0.2s; }
+
+    /* FOOTER */
+    footer { padding: 26px 56px; background: var(--sand); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
+    .fn { font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--ink-soft); }
+    .fa { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+
+    /* REVEAL */
+    .r { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .r.in { opacity: 1; transform: none; }
+    .r.d1 { transition-delay: 0.1s; }
+    .r.d2 { transition-delay: 0.2s; }
+    .r.d3 { transition-delay: 0.3s; }
+
+    @media (max-width: 860px) {
+      nav { padding: 18px 24px; }
+      .nav-right a:not(.nav-btn) { display: none; }
+      .hero { padding: 60px 24px; }
+      .section,.story-section { padding: 60px 24px; }
+      .ent-card { grid-template-columns: 1fr; }
+      .ent-arrow { display: none; }
+      .writing-grid { grid-template-columns: 1fr; }
+      .github-inner { grid-template-columns: 1fr; }
+      .skills-wrap { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; padding: 60px 24px; }
+      footer { flex-direction: column; gap: 8px; padding: 24px; text-align: center; }
+      .hero-stats { gap: 28px; }
+      .story-node { grid-template-columns: 44px 1fr; gap: 16px; }
     }
   </style>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            netflixBlack: '#141414',
-            netflixRed: '#E50914',
-            lightbg: '#f8fafc'
-          },
-        },
-      },
-    };
-  </script>
 </head>
+<body>
 
-<body class="bg-lightbg text-black dark:bg-netflixBlack dark:text-white transition-colors duration-500">
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      <div class="logo-mark">S</div>
+      <span class="logo-text">Saurabh Singh</span>
+    </div>
+    <div class="nav-right">
+      <a class="nav-link" href="#story">Story</a>
+      <a class="nav-link" href="#enterprise">Enterprise</a>
+      <a class="nav-link" href="#writing">Writing</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-btn" href="#contact">Let's Talk →</a>
+    </div>
+  </nav>
 
-  <!-- Header -->
-  <header
-    class="flex justify-between items-center px-6 py-4 shadow-lg sticky top-0 z-10 bg-white dark:bg-netflixBlack transition-colors duration-500">
-    <h1 class="text-xl font-bold text-netflixRed">iamsausi</h1>
-    <button id="themeToggle"
-      class="text-netflixRed p-2 rounded-full hover:bg-red-200 dark:hover:bg-red-900 transition duration-200">
-      <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current" viewBox="0 0 20 20">
-        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-      </svg>
-    </button>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="flex flex-col items-center justify-center min-h-[90vh] text-center px-4">
-    <h2 class="text-4xl font-bold mb-4">Hey, I'm Saurabh Singh</h2>
-    <p class="text-xl mb-6 max-w-2xl">Full Stack Developer | Gen AI Engineer | Tech & Finance Enthusiast</p>
-    <a href="#contact"
-      class="bg-netflixRed hover:bg-red-700 px-6 py-3 rounded-md text-white font-semibold transition duration-200">Get
-      in Touch</a>
+  <!-- HERO -->
+  <section class="hero">
+    <!-- <div class="open-badge r">
+      <div class="pulse-dot"></div>
+      Open to the right opportunity — from May 2026
+    </div> -->
+    <p class="hero-greeting r">Hey, I'm</p>
+    <h1 class="hero-name r">Saurabh <span class="wave">👋</span></h1>
+    <p class="hero-tagline r">I build AI systems.</p>
+  <p class="hero-bio r">
+  <strong>7+ years of experience building at scale.</strong> Most recently, CTO of <strong>Chaotix AI</strong> — a VC-backed startup (backed by <strong>Together AI</strong>) reinventing how Gen Z creates interactive content. I owned the architecture, the team, and the product. IIT Kanpur grad with 5+ years at Bajaj Finserv before that — shipping systems for 100M+ customers at 30 lakh hits/day.
+</p>
+<p class="hero-bio-2 r">
+  Alongside building Chaotix, I directed a <strong>build-in-public content strategy</strong> that gathered <strong>~10 million views in 3 months</strong> — purely organic. Also ran <strong>Pikoo AI</strong>, an AI tool lab for creators and educators, where I onboarded real creators, paid them, and built an outreach product so effective that a fellow AI CEO replaced his $200/month agency with it.
+</p>
+  
+    <div class="hero-actions r">
+      <a class="btn-primary" href="#contact">Work with me</a>
+      <a class="btn-secondary" href="https://medium.com/@sausi" target="_blank">Read my writing →</a>
+    </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
-    <h3 class="text-3xl font-bold mb-4 text-netflixRed">About Me</h3>
-    <p class="text-lg mb-8 text-gray-700 dark:text-gray-300 leading-relaxed">
+  <!-- STORY TIMELINE -->
+  <section class="story-section" id="story">
+    <div class="section-label r">The Startup Chapter</div>
+    <h2 class="section-heading r">What I built when I was<br><em>accountable to myself.</em></h2>
 
-      🚀 I’m a seasoned tech leader with 5+ years of experience designing and building high-performance systems—capable
-      of handling 100M+ customers and 10 lakh+ hits per hour with ease.
-      <br>
-      🧠 My core strengths lie in System Design, Angular, and building scalable SPAs and APIs that perform under
-      pressure. I’ve also worked extensively with WebSockets, SignalR, and cutting-edge Generative AI (GenAI) and
-      Agentic AI to deliver intelligent, real-time experiences.
-      <br>
-      📈 Now stepping into the startup world, I’m building a GenAI product from 0 to 1—driving both the technical
-      architecture and the product direction. I’m also expanding my skill set by diving into marketing and branding, to
-      understand how to not just build products—but to position and grow them.
-      <br>
-      👥 I’ve led teams, mentored engineers, conducted 100+ interviews, and built a culture of collaboration and
-      excellence. I believe great tech is built by great people—and I love empowering those around me.
-      <br>
-      💡 Forever curious, I thrive on solving complex challenges with bold thinking and smart execution.
+    <div class="story-timeline">
 
+      <!-- Chaotix -->
+      <div class="story-node r">
+        <div class="story-node-left">
+          <div class="story-dot dot-terra"></div>
+          <div class="story-connector"></div>
+        </div>
+        <div class="story-card">
+          <div class="story-top">
+            <div>
+              <span class="story-badge badge-terra">🚀 CTO</span>
+              <div class="story-title">Chaotix <em>AI</em></div>
+              <div class="story-subtitle">AI-native creative platform for Gen Z</div>
+            </div>
+            <div class="story-period">June 2025 – Present</div>
+          </div>
+          <p class="story-text">
+            Reinventing how Gen Z creates interactive content. Think TikTok meets real-time AI game engines — a fleeting idea becomes a playable experience in seconds. I own everything: <strong>architecture, hiring, product vision, and go-to-market.</strong> No safety net. That was the point.
+          </p>
+          <div class="story-pills">
+            <span class="s-pill">Agentic AI</span>
+            <span class="s-pill">Real-time Systems</span>
+            <span class="s-pill">Gen Z Platform</span>
+            <span class="s-pill">0 → 1</span>
+            <span class="s-pill">Full Ownership</span>
+          </div>
+        </div>
+      </div>
 
+      <!-- Pikoo -->
+      <div class="story-node r">
+        <div class="story-node-left">
+          <div class="story-dot dot-purple"></div>
+          <div class="story-connector"></div>
+        </div>
+        <div class="story-card">
+          <div class="story-top">
+            <div>
+              <div class="parallel-tag">
+                <div class="p-dot"></div>
+                Running in parallel with Chaotix
+              </div>
+              <span class="story-badge badge-purple">🧪 Experiment Lab</span>
+              <div class="story-title purple-em">Pikoo <em>AI</em></div>
+              <div class="story-subtitle">AI tool experiments for creators & educators</div>
+            </div>
+            <div class="story-period">2025</div>
+          </div>
+          <p class="story-text">
+            While building Chaotix, I didn't just sit and code. I launched Pikoo AI — a structured experiment lab for AI tools targeting creators and educators. The approach was simple: <strong>build fast, put real users on it, learn before scaling.</strong>
+          </p>
+          <p class="story-text">
+            I <strong>onboarded multiple creators and paid them</strong> to use the product — real skin in the game, not a waitlist. Built an outreach product from scratch, outsourced and scaled it, and watched <strong>organic traction come in</strong> without paid acquisition. The distribution loop worked.
+          </p>
+        
+          <div class="story-pills">
+            <span class="s-pill">Creator Economy</span>
+            <span class="s-pill">Outreach Automation</span>
+            <span class="s-pill">Organic Distribution</span>
+            <span class="s-pill">Structured Experiments</span>
+            <span class="s-pill">PMF Signals</span>
+          </div>
+        </div>
+      </div>
 
-    </p>
+  
+
+    </div>
   </section>
 
+  <!-- ENTERPRISE -->
+  <section class="section" id="enterprise">
+    <div class="section-label r">Enterprise Scale</div>
+    <h2 class="section-heading r">Before founding —<br>I built for <em>millions.</em></h2>
+    <div class="ent-list">
 
-  <!-- Experience -->
-  <section id="experience" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
-    <h3 class="text-3xl font-bold mb-6 text-netflixRed">Experience</h3>
-    <div class="space-y-6 text-gray-700 dark:text-gray-300">
-
-      <div>
-        <h4 class="text-xl font-bold">Chaotix AI</h4>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Building | June 2025 – Present</p>
-        <p>
-          At Chaotix AI, we’re reinventing how the next generation creates and interacts with digital content. Imagine a
-          world where a teenager’s fleeting thought can become an interactive, playable experience in seconds—where
-          TikTok meets real-time, AI-powered game engines. That’s the world we’re building.
-
-          We’re an early-stage, high-velocity team on a mission to make creativity feel like magic. Our platform lets
-          users generate, remix, and share interactive experiences with the ease of sending a message—redefining
-          internet creativity for Gen Z and beyond.
-        </p>
+      <div class="ent-card r">
+        <div>
+          <span class="ent-badge">AI Lead</span>
+          <div class="ent-co">Bajaj Finserv</div>
+        </div>
+        <div>
+          <p class="ent-desc">Led GenAI division. Built RAG + OpenAI pipeline for invoice analysis and NL finance queries — <strong>50% reduction in manual effort.</strong> Migrated main website to Micro Frontend architecture. Managed 8 engineers across full stack.</p>
+          <div class="ent-pills">
+            <span class="e-pill">RAG</span><span class="e-pill">OpenAI</span><span class="e-pill">Python</span><span class="e-pill">MicroFrontend</span><span class="e-pill">Team Lead</span>
+          </div>
+        </div>
+        <div class="ent-arrow">↗</div>
       </div>
 
-
-      <div>
-        <h4 class="text-xl font-bold">Bajaj Finserv</h4>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Associate Lead - AI Engineer | Feb 2025 – June 2025</p>
-        <p>
-          Built an AI assistant using GenAI (RAG + OpenAI) for automating invoice analysis, expense tracking, and
-          natural language finance queries — reducing manual effort by 50%. Led a team of 8 full stack developers,
-          shifted the main website to MicroFrontend architecture.<br>
-          <strong>Tech Used:</strong> Python, .NET Core, Angular.
-        </p>
+      <div class="ent-card r d1">
+        <div>
+          <span class="ent-badge gb">System Analyst</span>
+          <div class="ent-co">Bajaj Finserv</div>
+        </div>
+        <div>
+          <p class="ent-desc">Built device financing product from scratch. Created an internal real-time chat platform (Teams-style) using WebSockets + SignalR. Led multiple architecture modernisation POCs.</p>
+          <div class="ent-pills">
+            <span class="e-pill">Blazor</span><span class="e-pill">WebSockets</span><span class="e-pill">SignalR</span><span class="e-pill">Angular</span>
+          </div>
+        </div>
+        <div class="ent-arrow">↗</div>
       </div>
 
-      <div>
-        <p class="text-sm text-gray-600 dark:text-gray-400">System Analyst | Aug 2023 – Jan 2025</p>
-        <p>
-          Created a full device financing product from scratch, led a team to develop a Microsoft Teams-like internal
-          chat app, and delivered multiple HTML-to-Figma POCs.<br>
-          <strong>Tech Used:</strong> Blazor, WebSockets, Angular, SignalR.
-        </p>
-      </div>
-
-      <div>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Senior Software Engineer 2 | Feb 2022 – Jul 2023</p>
-        <p>
-          Designed and implemented a fast IVR response system cutting average time from 6 seconds to under 1 second with
-          30 lakh daily hits. Conducted Cosmos DB adoption POCs.<br>
-          <strong>Tech Used:</strong> Cosmos DB, Angular, .NET Core.
-        </p>
-      </div>
-
-      <div>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Senior Software Engineer | Jul 2020 – Jan 2022</p>
-        <p>
-          Built Angular User Access Management Portal and created a dynamic feedback system sent to all Bajaj Finserv
-          customers (~50 lakh hits/day).<br>
-          <strong>Tech Used:</strong> Angular, .NET APIs.
-        </p>
+      <div class="ent-card r d2">
+        <div>
+          <span class="ent-badge gb">Senior Engineer</span>
+          <div class="ent-co">Bajaj Finserv</div>
+        </div>
+        <div>
+          <p class="ent-desc">Rebuilt IVR engine: response time <strong>6s → under 1s</strong> at 30 lakh daily hits. Dynamic feedback system reaching 50 lakh customers/day. One of India's largest financial service backends.</p>
+          <div class="ent-pills">
+            <span class="e-pill">Cosmos DB</span><span class="e-pill">.NET Core</span><span class="e-pill">Angular</span><span class="e-pill">30L hits/day</span><span class="e-pill">6× Faster</span>
+          </div>
+        </div>
+        <div class="ent-arrow">↗</div>
       </div>
 
     </div>
   </section>
 
-
-
-
-  <!-- Education -->
-  <section id="education" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
-    <h3 class="text-3xl font-bold mb-6 text-netflixRed">Education</h3>
-    <div>
-      <h4 class="text-xl font-bold">Indian Institute of Technology, Kanpur</h4>
-      <p class="text-sm text-gray-700 dark:text-gray-400">Bachelors - 2020</p>
-      <p class="text-gray-700 dark:text-gray-300">
-        Gained a strong foundation in analytical thinking and problem-solving, which reflects in my full-stack and AI
-        engineering work today. <br>
-        Enjoyed hostel life and made great friends.
-      </p>
+  <!-- WRITING -->
+  <section class="section" id="writing" style="background: var(--sand);">
+    <div class="section-label r">Writing</div>
+    <h2 class="section-heading r">Thoughts I publish<br>on <em>Medium.</em></h2>
+    <div class="writing-grid">
+      <a class="writing-card r" href="https://medium.com/@sausi/how-claudes-new-generative-ui-works-and-how-to-build-it-yourself-99b3170c346b" target="_blank">
+        <div class="w-eye">✦ 100k+ Views</div>
+        <div class="w-title">How Claude’s New Generative UI Works (And How to Build It Yourself)</div>
+        <div class="w-blurb">A live interface that appears and grows on screen while the model is still generating it.</div>
+        <div class="w-cta">Read on Medium →</div>
+      </a>
+      <a class="writing-card r d1" href="https://medium.com/stackademic/most-techies-are-invisible-heres-why-storytelling-is-their-superpower-42e9b1588fb9" target="_blank">
+        <div class="w-eye">✦ Featured</div>
+        <div class="w-title">Most Techies Are Invisible. Here’s Why Storytelling Is Their Superpower.</div>
+        <div class="w-blurb">Why building in public is a force multiplier for technical careers.</div>
+        <div class="w-cta">Read on Medium →</div>
+      </a>
+      <a class="writing-card r d2" href="https://medium.com/stackademic/the-art-of-writing-great-system-prompts-abb22f8b8f37" target="_blank">
+        <div class="w-eye">✦ Technical Deep-dive</div>
+        <div class="w-title">The Art of Writing Great System Prompts</div>
+        <div class="w-blurb">More than 100 people have connected with me only to tell me how useful this article was.</div>
+        <div class="w-cta">Read on Medium →</div>
+      </a>
+      <a class="writing-card r d3" href="https://medium.com/@sausi" target="_blank">
+        <div class="w-eye">✦ @sausi on Medium</div>
+        <div class="w-title">See everything I've written →</div>
+        <div class="w-blurb">AI engineering, startup lessons, building in public. No fluff.</div>
+        <div class="w-cta">Visit profile →</div>
+      </a>
     </div>
   </section>
 
+  <!-- GITHUB -->
+  <div class="github-section">
+    <div class="github-inner">
+      <div class="github-text r">
+        <h2>Code that ships,<br>not just <em>commits.</em></h2>
+        <p>Every repo is something real — built to solve a problem. Open source AI tools, outreach systems, and experiments. Committing daily and building in public.</p>
+        <div class="gh-btns">
+          <a class="gh-btn gh-fill" href="https://github.com/sausi-7" target="_blank">↗ View GitHub</a>
+          <!-- <a class="gh-btn gh-out" href="#" target="_blank">Open Source</a> -->
+        </div>
+      </div>
+      <div class="cw r d1">
+        <div class="ch">Contribution Activity</div>
+        <div class="cg">
+          <div class="cr"><div class="c"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div><div class="c"></div><div class="c c1"></div><div class="c c2"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div></div>
+          <div class="cr"><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div><div class="c"></div><div class="c c1"></div><div class="c c2"></div><div class="c"></div><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div><div class="c c2"></div><div class="c"></div></div>
+          <div class="cr"><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c4"></div><div class="c c3"></div><div class="c"></div><div class="c c1"></div><div class="c c4"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div></div>
+          <div class="cr"><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div><div class="c c2"></div><div class="c"></div><div class="c c1"></div><div class="c c4"></div><div class="c c3"></div><div class="c"></div><div class="c c2"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c3"></div></div>
+          <div class="cr"><div class="c"></div><div class="c c1"></div><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c4"></div><div class="c c3"></div><div class="c"></div><div class="c c2"></div><div class="c c1"></div><div class="c c4"></div><div class="c"></div><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c c2"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-  <!-- Recommended Reads -->
-  <section id="reads" class="bg-white dark:bg-gray-900 px-6 py-12 transition-colors duration-500">
-    <h3 class="text-3xl font-bold mb-4 text-netflixRed">📚 Recommended Reads</h3>
-    <ul class="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
-      <li><span class="font-semibold">The Almanack of Naval Ravikant</span> – Wealth, health, and happiness.</li>
-      <li><span class="font-semibold">Shoe Dog</span> by Phil Knight – A memoir by the creator of Nike.</li>
-      <li><span class="font-semibold">The Accidental Billionaires</span> by Ben Mezrich – The founding of Facebook.</li>
-      <li><span class="font-semibold">Steve Jobs</span> by Walter Isaacson – The story of Apple's visionary co-founder.
-      </li>
-      <li><span class="font-semibold">Invent and Wander</span> by Walter Isaacson – The collected writings of Jeff
-        Bezos.</li>
-      <li><span class="font-semibold">The Hard Thing About Hard Things</span> by Ben Horowitz – Building a business when
-        there are no easy answers.</li>
-      <li><span class="font-semibold">Atomic Habits</span> by James Clear – Small habits, big results.</li>
-      <li><span class="font-semibold">Deep Work</span> by Cal Newport – Focused productivity in a distracted world.</li>
-      <li><span class="font-semibold">Zero to One</span> by Peter Thiel – Building startups and future thinking.</li>
-    </ul>
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-label r">Skills & Thinking</div>
+    <h2 class="section-heading r">How I <em>think</em> and build.</h2>
+    <div class="skills-wrap">
+      <div class="skill-block r">
+        <div class="skill-lbl">AI & Machine Learning</div>
+        <div class="chips">
+          <span class="chip">Agentic AI</span><span class="chip">RAG Pipelines</span><span class="chip">LLM Systems</span><span class="chip">Voice AI</span><span class="chip">OpenAI</span><span class="chip">LangChain</span>
+        </div>
+      </div>
+      <div class="skill-block r d1">
+        <div class="skill-lbl">Engineering</div>
+        <div class="chips">
+          <span class="chip">System Design</span><span class="chip">Micro Frontends</span><span class="chip">WebSockets</span><span class="chip">Angular</span><span class="chip">Python</span><span class="chip">.NET Core</span>
+        </div>
+      </div>
+      <div class="skill-block r d2">
+        <div class="skill-lbl">Founder Operating System</div>
+        <div class="chips">
+          <span class="chip">0→1 Building</span><span class="chip">Distribution</span><span class="chip">Outreach Systems</span><span class="chip">Creator Onboarding</span><span class="chip">Team Building</span>
+        </div>
+      </div>
+     
+    </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-white dark:bg-gray-900 px-6 py-12 max-w-4xl mx-auto transition-colors duration-500">
-    <h3 class="text-3xl font-bold mb-4 text-netflixRed">Reach Out</h3>
-    <p class="mb-2 text-gray-700 dark:text-gray-300">Email: <a href="mailto:iamsausi@outlook.com"
-        class="text-netflixRed hover:underline">iamsausi@outlook.com</a></p>
-    <p class="mb-2 text-gray-700 dark:text-gray-300">LinkedIn: <a href="https://linkedin.com/in/iamsausi"
-        target="_blank" class="text-netflixRed hover:underline">iamsausi</a></p>
-    <p class="mb-2 text-gray-700 dark:text-gray-300">Instagram: <a href="https://instagram.com/sausi007" target="_blank"
-        class="text-netflixRed hover:underline">iamsausi</a></p>
-    <p class="text-gray-700 dark:text-gray-300">Medium: <a href="https://medium.com/@sausi" target="_blank"
-        class="text-netflixRed hover:underline">@sausi</a></p>
-  </section>
+  <!-- CONTACT -->
+  <div class="contact-grid" id="contact">
+    <div class="contact-left r">
+      <h2>Let's build something <em>real.</em></h2>
+      <p>Looking for a CTO or Co-founder role at a pre-seed to seed-stage startup where AI is core to the product. If you need someone who owns the technical side and thinks in product, distribution, and growth — let's talk.</p>
+      <a class="contact-email" href="mailto:singh71297@hotmail.com">singh71297@hotmail.com ✉️</a>
+    </div>
+    <div class="socials r d1">
+      <a class="social-row" href="https://linkedin.com/in/iamsausi" target="_blank">
+        <div><div class="spl">LinkedIn</div><div class="shn">iamsausi</div></div>
+        <div class="sarr">↗</div>
+      </a>
+      <a class="social-row" href="https://medium.com/@sausi" target="_blank">
+        <div><div class="spl">Medium</div><div class="shn">@sausi</div></div>
+        <div class="sarr">↗</div>
+      </a>
+      <a class="social-row" href="https://github.com/sausi-7" target="_blank">
+        <div><div class="spl">GitHub</div><div class="shn">sausi-7</div></div>
+        <div class="sarr">↗</div>
+      </a>
+  
+    </div>
+  </div>
 
-  <!-- Footer -->
-  <footer
-    class="text-center py-6 bg-white dark:bg-netflixBlack border-t border-gray-300 dark:border-gray-700 transition-colors duration-500">
-    <p class="text-sm text-gray-700 dark:text-gray-400">&copy; 2025 Saurabh Singh. All rights reserved.</p>
-  </footer>
 
-  <!-- Theme Toggle Script -->
+
   <script>
-    const toggleBtn = document.getElementById('themeToggle');
-    const icon = document.getElementById('themeIcon');
-    toggleBtn.addEventListener('click', () => {
-      const html = document.documentElement;
-      html.classList.toggle('dark');
-    });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.r').forEach(el => obs.observe(el));
   </script>
-
 </body>
 
 </html>

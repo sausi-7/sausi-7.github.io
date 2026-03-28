@@ -106,7 +106,6 @@
     .hero-bio-2 { font-size: 15px; color: var(--ink-mid); max-width: 680px; line-height: 1.9; margin-bottom: 44px; }
     .hero-bio-2 strong { color: var(--ink); font-weight: 500; }
 
-    /* inline proof highlight */
     .inline-proof {
       display: inline;
       background: var(--gold-light);
@@ -206,7 +205,6 @@
     .story-text strong { color: var(--ink); font-weight: 500; }
     .story-text:last-of-type { margin-bottom: 20px; }
 
-    /* THE $200 CALLOUT */
     .proof-block {
       background: var(--gold-light);
       border: 1px solid rgba(196,146,42,0.3);
@@ -292,6 +290,87 @@
     .c { width: 13px; height: 13px; border-radius: 3px; background: rgba(255,255,255,0.05); }
     .c1{background:rgba(192,94,60,0.25)}.c2{background:rgba(192,94,60,0.5)}.c3{background:rgba(192,94,60,0.75)}.c4{background:rgba(192,94,60,1)}
 
+    /* REPO CARDS */
+    .repos-label {
+      font-family: var(--sans); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra);
+      margin-top: 56px; margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .repos-label::after { content: ''; width: 32px; height: 1px; background: var(--terra); }
+
+    .repos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .repo-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 24px 26px;
+      text-decoration: none;
+      display: flex; flex-direction: column;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .repo-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--terra);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .repo-card:hover {
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+      border-color: rgba(192,94,60,0.3);
+    }
+    .repo-card:hover::before { opacity: 1; }
+
+    .repo-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .repo-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .repo-icon.ai { background: rgba(192,94,60,0.15); }
+    .repo-icon.tool { background: rgba(124,107,174,0.15); }
+    .repo-icon.sys { background: rgba(122,158,126,0.15); }
+
+    .repo-arrow {
+      font-size: 16px; color: rgba(255,255,255,0.2);
+      transition: all 0.2s;
+    }
+    .repo-card:hover .repo-arrow { color: var(--terra); transform: translate(3px, -3px); }
+
+    .repo-name {
+      font-family: var(--sans); font-size: 15px; font-weight: 600;
+      color: white; margin-bottom: 8px; line-height: 1.3;
+    }
+    .repo-desc {
+      font-family: var(--body); font-size: 13px; color: rgba(255,255,255,0.4);
+      line-height: 1.7; margin-bottom: 16px; flex: 1;
+    }
+    .repo-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .repo-lang {
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      color: rgba(255,255,255,0.35);
+    }
+    .lang-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .lang-py { background: #3572A5; }
+    .lang-ts { background: #3178C6; }
+    .lang-cs { background: #68217A; }
+    .lang-js { background: #F7DF1E; }
+    .lang-html {background: #e34c26;}
+
+    .repo-stat {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      color: rgba(255,255,255,0.25);
+      display: flex; align-items: center; gap: 4px;
+    }
+
     /* SKILLS */
     .skills-wrap { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
     .skill-block { background: var(--sand); border: 1px solid var(--border); border-radius: 16px; padding: 26px 28px; }
@@ -337,11 +416,16 @@
       .ent-arrow { display: none; }
       .writing-grid { grid-template-columns: 1fr; }
       .github-inner { grid-template-columns: 1fr; }
+      .github-section { padding: 60px 24px; }
+      .repos-grid { grid-template-columns: 1fr; }
       .skills-wrap { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; padding: 60px 24px; }
       footer { flex-direction: column; gap: 8px; padding: 24px; text-align: center; }
       .hero-stats { gap: 28px; }
       .story-node { grid-template-columns: 44px 1fr; gap: 16px; }
+    }
+    @media (min-width: 861px) and (max-width: 1100px) {
+      .repos-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -356,6 +440,7 @@
     <div class="nav-right">
       <a class="nav-link" href="#story">Story</a>
       <a class="nav-link" href="#enterprise">Enterprise</a>
+      <a class="nav-link" href="#repos">Repos</a>
       <a class="nav-link" href="#writing">Writing</a>
       <a class="nav-link" href="#skills">Skills</a>
       <a class="nav-btn" href="#contact">Let's Talk →</a>
@@ -364,10 +449,6 @@
 
   <!-- HERO -->
   <section class="hero">
-    <!-- <div class="open-badge r">
-      <div class="pulse-dot"></div>
-      Open to the right opportunity — from May 2026
-    </div> -->
     <p class="hero-greeting r">Hey, I'm</p>
     <h1 class="hero-name r">Saurabh <span class="wave">👋</span></h1>
     <p class="hero-tagline r">I build AI systems.</p>
@@ -455,8 +536,6 @@
         </div>
       </div>
 
-  
-
     </div>
   </section>
 
@@ -511,6 +590,81 @@
     </div>
   </section>
 
+  <!-- GITHUB + REPOS -->
+  <div class="github-section" id="repos">
+    <div class="github-inner">
+      <div class="github-text r">
+        <h2>Code that ships,<br>not just <em>commits.</em></h2>
+        <p>Every repo is something real — built to solve a problem. Open source AI tools, outreach systems, and experiments. Committing daily and building in public.</p>
+        <div class="gh-btns">
+          <a class="gh-btn gh-fill" href="https://github.com/sausi-7" target="_blank">↗ View GitHub</a>
+        </div>
+      </div>
+      <div class="cw r d1">
+        <div class="ch">Contribution Activity</div>
+        <div class="cg">
+          <div class="cr"><div class="c"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div><div class="c"></div><div class="c c1"></div><div class="c c2"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div></div>
+          <div class="cr"><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div><div class="c"></div><div class="c c1"></div><div class="c c2"></div><div class="c"></div><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div><div class="c c2"></div><div class="c"></div></div>
+          <div class="cr"><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c4"></div><div class="c c3"></div><div class="c"></div><div class="c c1"></div><div class="c c4"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div></div>
+          <div class="cr"><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div><div class="c c2"></div><div class="c"></div><div class="c c1"></div><div class="c c4"></div><div class="c c3"></div><div class="c"></div><div class="c c2"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c3"></div></div>
+          <div class="cr"><div class="c"></div><div class="c c1"></div><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c4"></div><div class="c c3"></div><div class="c"></div><div class="c c2"></div><div class="c c1"></div><div class="c c4"></div><div class="c"></div><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c c2"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOP REPOS -->
+    <div class="repos-label r">Pinned Repositories</div>
+    <div class="repos-grid">
+
+      <!-- REPO 1 — Replace href and details with your actual repo -->
+      <a class="repo-card r" href="https://github.com/sausi-7/generative-ui-demo" target="_blank">
+        <div class="repo-top">
+          <div class="repo-icon ai">🤖</div>
+          <div class="repo-arrow">↗</div>
+        </div>
+        <div class="repo-name">generative-ui-demo</div>
+        <div class="repo-desc">Generative UI: How an AI Builds Your Interface in Real Time.</div>
+        <div class="repo-meta">
+          <div class="repo-lang"><div class="lang-dot lang-html"></div> Html</div>
+          <div class="repo-lang"><div class="lang-dot lang-py"></div> Python</div>
+
+          <div class="repo-stat">⭐ 40+</div>
+        </div>
+      </a>
+
+      <!-- REPO 2 -->
+      <a class="repo-card r d1" href="https://github.com/sausi-7/reddit-outreach" target="_blank">
+        <div class="repo-top">
+          <div class="repo-icon tool">🧪</div>
+          <div class="repo-arrow">↗</div>
+        </div>
+        <div class="repo-name">reddit-outreach</div>
+        <div class="repo-desc">Automatically scans subreddits for recent posts, uses AI to generate summaries and suggested comments, and writes everything to a Google Sheet — one new tab per day, hands-free.</div>
+        <div class="repo-meta">
+          <div class="repo-lang"><div class="lang-dot lang-ts"></div> TypeScript</div>
+          <div class="repo-stat">⭐ 10+</div>
+        </div>
+      </a>
+
+      <!-- REPO 3 -->
+      <a class="repo-card r d2" href="https://github.com/sausi-7/reddit-idea-miner" target="_blank">
+        <div class="repo-top">
+          <div class="repo-icon sys">⚡</div>
+          <div class="repo-arrow">↗</div>
+        </div>
+        <div class="repo-name">reddit-idea-miner</div>
+        <div class="repo-desc">Brief description of what this repo does. Replace with your actual repo description.</div>
+        <div class="repo-meta">
+          <div class="repo-lang"><div class="lang-dot lang-py"></div> Python</div>
+          <div class="repo-stat">⭐ 1+</div>
+        </div>
+      </a>
+
+     
+
+    </div>
+  </div>
+
   <!-- WRITING -->
   <section class="section" id="writing" style="background: var(--sand);">
     <div class="section-label r">Writing</div>
@@ -518,13 +672,13 @@
     <div class="writing-grid">
       <a class="writing-card r" href="https://medium.com/@sausi/how-claudes-new-generative-ui-works-and-how-to-build-it-yourself-99b3170c346b" target="_blank">
         <div class="w-eye">✦ 100k+ Views</div>
-        <div class="w-title">How Claude’s New Generative UI Works (And How to Build It Yourself)</div>
+        <div class="w-title">How Claude's New Generative UI Works (And How to Build It Yourself)</div>
         <div class="w-blurb">A live interface that appears and grows on screen while the model is still generating it.</div>
         <div class="w-cta">Read on Medium →</div>
       </a>
       <a class="writing-card r d1" href="https://medium.com/stackademic/most-techies-are-invisible-heres-why-storytelling-is-their-superpower-42e9b1588fb9" target="_blank">
         <div class="w-eye">✦ Featured</div>
-        <div class="w-title">Most Techies Are Invisible. Here’s Why Storytelling Is Their Superpower.</div>
+        <div class="w-title">Most Techies Are Invisible. Here's Why Storytelling Is Their Superpower.</div>
         <div class="w-blurb">Why building in public is a force multiplier for technical careers.</div>
         <div class="w-cta">Read on Medium →</div>
       </a>
@@ -542,30 +696,6 @@
       </a>
     </div>
   </section>
-
-  <!-- GITHUB -->
-  <div class="github-section">
-    <div class="github-inner">
-      <div class="github-text r">
-        <h2>Code that ships,<br>not just <em>commits.</em></h2>
-        <p>Every repo is something real — built to solve a problem. Open source AI tools, outreach systems, and experiments. Committing daily and building in public.</p>
-        <div class="gh-btns">
-          <a class="gh-btn gh-fill" href="https://github.com/sausi-7" target="_blank">↗ View GitHub</a>
-          <!-- <a class="gh-btn gh-out" href="#" target="_blank">Open Source</a> -->
-        </div>
-      </div>
-      <div class="cw r d1">
-        <div class="ch">Contribution Activity</div>
-        <div class="cg">
-          <div class="cr"><div class="c"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div><div class="c"></div><div class="c c1"></div><div class="c c2"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div></div>
-          <div class="cr"><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div><div class="c"></div><div class="c c1"></div><div class="c c2"></div><div class="c"></div><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div><div class="c c2"></div><div class="c"></div></div>
-          <div class="cr"><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c4"></div><div class="c c3"></div><div class="c"></div><div class="c c1"></div><div class="c c4"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div></div>
-          <div class="cr"><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c3"></div><div class="c c4"></div><div class="c c2"></div><div class="c"></div><div class="c c1"></div><div class="c c4"></div><div class="c c3"></div><div class="c"></div><div class="c c2"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c3"></div></div>
-          <div class="cr"><div class="c"></div><div class="c c1"></div><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c"></div><div class="c c2"></div><div class="c c4"></div><div class="c c3"></div><div class="c"></div><div class="c c2"></div><div class="c c1"></div><div class="c c4"></div><div class="c"></div><div class="c c3"></div><div class="c c4"></div><div class="c c1"></div><div class="c c2"></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- SKILLS -->
   <section class="section" id="skills">
@@ -614,11 +744,13 @@
         <div><div class="spl">GitHub</div><div class="shn">sausi-7</div></div>
         <div class="sarr">↗</div>
       </a>
-  
     </div>
   </div>
 
-
+  <footer>
+    <div class="fn">Saurabh Singh — 2026</div>
+    <div class="fa">Built with intention</div>
+  </footer>
 
   <script>
     const obs = new IntersectionObserver((entries) => {
@@ -627,5 +759,4 @@
     document.querySelectorAll('.r').forEach(el => obs.observe(el));
   </script>
 </body>
-
 </html>
